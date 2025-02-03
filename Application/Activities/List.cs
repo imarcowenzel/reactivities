@@ -3,16 +3,16 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
 
-namespace Application
+namespace Application.Activities
 {
     public class List
     {
-        public class Query: IRequest<List<Activity>>
+        public class Query : IRequest<List<Activity>>
         {
-            
+
         }
         public class Handler : IRequestHandler<Query, List<Activity>>
-{
+        {
             private readonly DataContext _context;
 
             public Handler(DataContext context)

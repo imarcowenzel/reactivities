@@ -2,11 +2,11 @@
 using MediatR;
 using Persistence;
 
-namespace Application
+namespace Application.Activities
 {
     public class Details
     {
-        public class Query: IRequest<Activity>
+        public class Query : IRequest<Activity>
         {
             public Guid Id { get; set; }
         }

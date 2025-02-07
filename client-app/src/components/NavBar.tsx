@@ -2,15 +2,15 @@ import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
 import {
-    NavigationMenu,
-    NavigationMenuItem,
-    NavigationMenuList,
+  NavigationMenu,
+  NavigationMenuItem,
+  NavigationMenuList,
 } from "@/components/ui/navigation-menu";
 
-const NavBar = () => {
+const Navbar = () => {
   return (
     <NavigationMenu className="gap-4">
-        <h1>Reactivities</h1>
+      <h1>Reactivities</h1>
       <NavigationMenuList className="flex">
         <NavigationMenuItem>
           <Link href="/">Activities</Link>
@@ -23,4 +23,4 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;
+export default Navbar;

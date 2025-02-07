@@ -1,7 +1,6 @@
-import NavBar from "@/components/NavBar";
 import { Activity } from "@/types";
 
-async function Home() {
+const Home = async () => {
   try {
     const response = await fetch("http://localhost:5000/api/activities");
 
@@ -13,7 +12,6 @@ async function Home() {
 
     return (
       <div>
-        <NavBar />
         <ul>
           {activities.map((activity) => (
             <li key={activity.id}>{activity.title}</li>
@@ -25,6 +23,6 @@ async function Home() {
     console.error("Erro ao buscar atividades:", error);
     return <div>Erro ao carregar atividades. Verifique o console.</div>;
   }
-}
+};
 
 export default Home;

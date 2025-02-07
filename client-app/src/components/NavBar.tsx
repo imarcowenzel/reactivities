@@ -9,9 +9,9 @@ import {
 
 const Navbar = () => {
   return (
-    <NavigationMenu className="gap-4">
-      <h1>Reactivities</h1>
-      <NavigationMenuList className="flex">
+    <NavigationMenu className="space-x-4">
+      <h1 className="uppercase font-bold">reactivities</h1>
+      <NavigationMenuList>
         <NavigationMenuItem>
           <Link href="/">Activities</Link>
         </NavigationMenuItem>

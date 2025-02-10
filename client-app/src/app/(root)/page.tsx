@@ -1,4 +1,7 @@
 import { Activity } from "@/types";
+import { DataTable } from "./components/data-table";
+import { payments } from "./components/mock-data";
+import { columns } from "./components/columns";
 
 const Home = async () => {
   try {
@@ -12,11 +15,7 @@ const Home = async () => {
 
     return (
       <div>
-        <ul>
-          {activities.map((activity) => (
-            <li key={activity.id}>{activity.title}</li>
-          ))}
-        </ul>
+        <DataTable data={payments} columns={columns} />
       </div>
     );
   } catch (error) {

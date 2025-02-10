@@ -16,6 +16,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Activity } from "@/types";
+import Link from "next/link";
 
 export const columns: ColumnDef<Activity>[] = [
   {
@@ -39,6 +40,10 @@ export const columns: ColumnDef<Activity>[] = [
     ),
     enableSorting: false,
     enableHiding: false,
+  },
+  {
+    accessorKey: "id",
+    header: "Id"
   },
   {
     accessorKey: "title",
@@ -73,7 +78,8 @@ export const columns: ColumnDef<Activity>[] = [
   },
   {
     id: "actions",
-    cell: () => {
+    cell: ({row}) => {
+      const activityId = row.getValue("id");
       return (
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
@@ -85,7 +91,9 @@ export const columns: ColumnDef<Activity>[] = [
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>Actions</DropdownMenuLabel>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>View</DropdownMenuItem>
+            <DropdownMenuItem>
+              <Link href={`/activity/${activityId}`}>View</Link>
+            </DropdownMenuItem>
             <DropdownMenuItem>Edit</DropdownMenuItem>
             <DropdownMenuItem>Delete</DropdownMenuItem>
           </DropdownMenuContent>

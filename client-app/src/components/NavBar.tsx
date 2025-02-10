@@ -10,7 +10,9 @@ import {
 const Navbar = () => {
   return (
     <NavigationMenu className="space-x-4">
-      <h1 className="uppercase font-bold">reactivities</h1>
+      <Link href="/" className="uppercase font-bold">
+        reactivities
+      </Link>
       <NavigationMenuList>
         <NavigationMenuItem>
           <Link href="/">Activities</Link>

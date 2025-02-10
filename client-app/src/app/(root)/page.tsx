@@ -1,10 +1,10 @@
 import { Activity } from "@/types";
-import { DataTable } from "./components/data-table";
-import { payments } from "./components/mock-data";
 import { columns } from "./components/columns";
+import { DataTable } from "./components/data-table";
 
 const Home = async () => {
   try {
+
     const response = await fetch("http://localhost:5000/api/activities");
 
     if (!response.ok) {
@@ -13,11 +13,7 @@ const Home = async () => {
 
     const activities: Activity[] = await response.json();
 
-    return (
-      <div>
-        <DataTable data={payments} columns={columns} />
-      </div>
-    );
+    return <DataTable data={activities} columns={columns} />;
   } catch (error) {
     console.error("Erro ao buscar atividades:", error);
     return <div>Erro ao carregar atividades. Verifique o console.</div>;

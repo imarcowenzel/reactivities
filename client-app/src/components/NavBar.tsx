@@ -18,7 +18,9 @@ const Navbar = () => {
           <Link href="/">Activities</Link>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <Button>Create Activity</Button>
+          <Button>
+            <Link href="/activity/create">Create Activity</Link>
+          </Button>
         </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>

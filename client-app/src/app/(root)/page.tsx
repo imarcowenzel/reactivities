@@ -4,7 +4,6 @@ import { DataTable } from "./components/data-table";
 
 const Home = async () => {
   try {
-
     const response = await fetch("http://localhost:5000/api/activities");
 
     if (!response.ok) {

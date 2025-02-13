@@ -1,6 +1,6 @@
-import ActivityForm from "./components/form";
+import ActivityForm from "@/components/activity-form";
 
-const CreatePage = () => {
+const CreateActivity = () => {
   return (
     <div>
       <ActivityForm />
@@ -8,4 +8,4 @@ const CreatePage = () => {
   );
 };
 
-export default CreatePage;
+export default CreateActivity;

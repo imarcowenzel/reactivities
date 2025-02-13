@@ -6,6 +6,8 @@ import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import { Activity } from "@/types";
+import BackButton from "./components/back-button";
+import EditButton from "./components/edit-button";
 
 const ActivityPage = () => {
   const [activity, setActivity] = useState<Activity | null>(null);
@@ -33,13 +35,19 @@ const ActivityPage = () => {
   const dateFormatted = format(date, "dd/MM/yyyy hh:mm aa", { locale: ptBR });
 
   return (
-    <div>
-      <h1>{activity.title}</h1>
-      <p>{activity.description}</p>
-      <p>{activity.date}</p>
-      <p>{dateFormatted}</p>
-      <p>{activity.city}</p>
-      <p>{activity.venue}</p>
+    <div className="flex flex-col gap-2">
+      <div>
+        <h1>{activity.title}</h1>
+        <p>{activity.description}</p>
+        <p>{activity.date}</p>
+        <p>{dateFormatted}</p>
+        <p>{activity.city}</p>
+        <p>{activity.venue}</p>
+      </div>
+      <div className="flex gap-2">
+        <BackButton />
+        <EditButton id={activity.id} />
+      </div>
     </div>
   );
 };

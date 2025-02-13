@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { Activity } from "@/types";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -24,9 +25,21 @@ const formSchema = z.object({
   venue: z.string(),
 });
 
-const ActivityForm = () => {
+interface Props {
+  activity?: Activity;
+}
+
+const ActivityForm = ({ activity }: Props) => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
+    defaultValues: {
+      title: activity?.title || "",
+      date: activity?.date ? new Date(activity.date) : new Date(),
+      description: activity?.description || "",
+      category: activity?.category || "",
+      city: activity?.city || "",
+      venue: activity?.venue || "",
+    },
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {

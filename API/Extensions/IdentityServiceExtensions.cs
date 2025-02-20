@@ -33,6 +33,11 @@ namespace API.Extensions
                 };
             });
 
+            services.AddAuthorization(opt =>
+            {
+                opt.AddPolicy("")
+            }
+            );
             services.AddScoped<TokenService>();
 
             return services;

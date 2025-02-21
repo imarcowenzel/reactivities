@@ -3,10 +3,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
-using System;
-using System.Linq;
-using System.Threading.Tasks;
-using Domain;
 
 namespace Infrasctructure.Security
 {
@@ -33,10 +29,11 @@ namespace Infrasctructure.Security
 
             var activityId = Guid.Parse(_httpContextAccessor.HttpContext?.Request.RouteValues
                 .SingleOrDefault(x => x.Key == "id").Value?.ToString());
-                
-            var attendee =  _dbContext.ActivityAttendees
+
+            var attendee = _dbContext.ActivityAttendees
                 .AsNoTracking()
-                .SingleOrDefaultAsync(x => x.AppUserId && x.ActivityId == activityId).Result;
+                .SingleOrDefaultAsync(x => x.AppUserId == userId && x.ActivityId == activityId).Result;
+
 
             if (attendee == null) return Task.CompletedTask;
 
